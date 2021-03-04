@@ -1,0 +1,184 @@
+/* 
+    CLASSES DE ANIMAÇÃO: 
+    NÃO INSERIR 'executar-' NOS  ELEMENTOS
+    
+    isso é feito automaticamente via JavaScript ao rolar (scroll) a página
+ */
+
+
+
+/*------------------------------------
+inicio
+*------------------------------------*/
+@keyframes prato {
+    0%   {
+        opacity: 100%;
+        transform: scale(0.3) translateX(-220%) rotate(180deg);
+    }
+    100% {
+        opacity: 100%;
+        transform: scale(0.75) translateX(0%) rotate(0deg);
+    }
+  }
+  
+.executar-animacao-prato {
+    transform: scale(0.75);
+    animation-name: prato;
+    animation-duration: 2s;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+  }
+
+.executar-animacao-aparecer {
+    animation-name: aparecer;
+    animation-duration: 1s;
+}
+
+@keyframes subir1 {
+    0%, 25%   {
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateY(0%);
+    }
+  }
+
+  .executar-animacao-subir-1 {
+    animation: subir1 0.5s ease-in;
+}
+
+@keyframes subir2 {
+    0%, 50%   {
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateY(0%);
+    }
+  }
+
+.executar-animacao-subir-2 {
+    animation: subir2 1s ease-in;
+}
+
+@keyframes subir3 {
+    0%, 75%   {
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateY(0%);
+    }
+  }
+
+.executar-animacao-subir-3 {
+    animation: subir3 2s ease-in;
+}
+
+/*------------------------------------
+recomendacao
+*------------------------------------*/
+.carousel {
+    max-width: 100%;
+}
+
+.carousel div {
+    outline: none;
+}
+
+.carousel div img {
+    max-height: 350px;
+}
+
+.hoverbox .hoverbox-content {
+    max-width: 83%;
+}
+/*  
+.slick-slide {
+    margin-right: -50px !important;
+    padding-right: -50px !important;
+} */
+
+/*------------------------------------
+apelo
+*------------------------------------*/
+@keyframes mostrar1 {
+    0% {
+        opacity: 0%;
+        transform: translateX(100%);
+    }
+    75% {
+        opacity: 100%;
+    }
+    100% {        
+        transform: translateX(0%);
+    }
+  }
+
+.executar-animacao-mostrar-1 {
+    animation: mostrar1 0.5s ease-out;
+}
+
+@keyframes zoom {
+    0% {
+        opacity: 0%;
+    }
+    25% {
+        opacity: 0%;
+        transform: translateX(-15%) translateY(-15%) scale(0);
+    }
+    75% {
+        opacity: 100%;
+        transform: translateX(0%) translateY(0%) scale(1.1);
+    }
+    100% {        
+        transform: scale(1);
+    }
+  }
+
+.executar-animacao-zoom {
+    animation: zoom 1.2s ease-out;
+}
+/*------------------------------------
+menu
+*------------------------------------*/
+
+
+/*------------------------------------
+contato
+*------------------------------------*/
+@keyframes mostrar2 {
+    0% {
+        opacity: 0%;
+        transform: translateX(100%);
+    }
+    75% {
+        opacity: 100%;
+    }
+    100% {        
+        transform: translateX(0%);
+    }
+  }
+
+.executar-animacao-mostrar-2 {
+    animation: mostrar2 1s ease-out;
+}
+
+.texto-contato {
+    color: black;
+}
+
+.botao-contato {
+    transform: translateX(-5%);
+}
