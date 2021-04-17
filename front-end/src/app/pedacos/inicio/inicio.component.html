@@ -1,0 +1,13 @@
+<section id="inicio">
+  <div class="inicioFundo">
+    <img class="imagemFundo" [src]="imagemFundo">
+    <img class="pratoChefe" [src]="pratoChefe">
+  </div>
+  <div class="texto">
+    <h1>
+      <span *ngFor="let pedacoTitulo of pedacosTitulo" [ngStyle]="estiloTitulo(pedacoTitulo)"><br *ngIf="pedacoTitulo.quebrarLinha">{{ pedacoTitulo.texto }}</span>
+    </h1>
+    <p>{{ descricao }}</p>
+    <button mat-stroked-button>{{ botaoMenuTexto }}</button>
+  </div>
+</section>

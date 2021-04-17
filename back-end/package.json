@@ -1,5 +1,5 @@
 {
-  "name": "back-end",
+  "name": "cardapio-rapido",
   "version": "0.0.0",
   "main": "service.js",
   "scripts": {

@@ -1,0 +1,9 @@
+<mat-toolbar class="fixador">
+  <mat-toolbar-row>
+    <img class="logo" [src]="logoUrl">
+    <div class="espacador">
+      <span *ngFor="let botao of botoes">{{ botao.texto }}</span>
+    </div>
+    <button mat-stroked-button [matBadge]="quantidadePedidos" matBadgePosition="before" matBadgeColor="accent">{{ botaoPedidoTexto }}</button>
+  </mat-toolbar-row>
+</mat-toolbar>

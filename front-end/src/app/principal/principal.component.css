@@ -1,0 +1,18 @@
+.botaoSubir {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+
+.botaoSubir:hover {
+  cursor: pointer;
+}
+
+.imagem {
+  margin: 8px;
+}

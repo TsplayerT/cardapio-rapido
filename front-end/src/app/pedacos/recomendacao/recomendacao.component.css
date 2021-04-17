@@ -1,0 +1,64 @@
+p {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 700 !important;
+}
+
+h2 {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: xxx-large;
+  font-weight: 700 !important;
+}
+
+owl-carousel-o {
+  position: absolute;
+  margin-left: 10%;
+  width: 80%;
+}
+
+ng-container {
+  background-color: red !important;
+}
+
+.owl-item {
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.fundo {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	z-index: 2;
+	visibility: hidden;
+  background-image: linear-gradient(180deg, white 50%, lightgray 90%);
+}
+
+.frente:hover + .fundo, .fundo:hover {
+	opacity: 0.5;
+	visibility: visible;
+}
+
+.frente, .fundo {
+  border-radius: 10px;
+}
+
+.texto {
+  color: rgb(50, 50, 50);
+  text-align: center;
+  line-height: 700px;
+}
+
+/* img {
+  width: 100%;
+  height: auto;
+  max-width: 99vh;
+} */

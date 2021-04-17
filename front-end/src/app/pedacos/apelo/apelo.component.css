@@ -1,0 +1,44 @@
+section {
+  height: 250px;
+  background-color: #c2121f;
+}
+
+img {
+  position: relative;
+  top: -149.6%;
+  left: 5%;
+  transform: scale(0.4);
+  overflow: hidden;
+}
+
+div {
+  position: relative;
+  top: -335%;
+  left: 50%;
+  max-width: 50%;
+}
+
+p {
+  color: gold;
+  font-size: large;
+  font-weight: 700;
+}
+
+h1 {
+  color: white;
+  font-size: xx-large;
+  margin-bottom: 50px;
+}
+
+button {
+  width: 150px;
+  transform: scale(1.1);
+  color: black;
+  background-color: gold;
+  text-transform: uppercase;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(200, 200, 50);
+}

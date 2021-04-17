@@ -1,0 +1,29 @@
+<section id="menu">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab *ngFor="let aba of abas">
+
+      <ng-template mat-tab-label>
+        <mat-icon>{{ aba.imagemTag }}</mat-icon>{{ aba.titulo }}
+      </ng-template>
+
+      <mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'15px'">
+        <ng-container *ngIf="opcoes[aba.id] === undefined || opcoes[aba.id] === null || opcoes[aba.id].length === 0">
+          <mat-grid-tile *ngFor="let i of [1,2]">
+            <span class="opcaoNula" *ngIf="i === 2">{{ textoNenhumaOpcao }}</span>
+          </mat-grid-tile>
+        </ng-container>
+
+        <mat-grid-tile class="opcaoPossivel" *ngFor="let opcao of opcoes[aba.id]" (click)="abrirOpcao(opcao)">
+          <div class="coluna">
+            <div class="linha">
+              <h1>{{ opcao.nome }}</h1>
+              <span class="menuPreco">{{ ajustarTextoPreco(opcao.preco) }}</span>
+            </div>
+            <p class="menuDescricao">{{ opcao.descricao }}</p>
+          </div>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+    </mat-tab>
+  </mat-tab-group>
+</section>

@@ -1,0 +1,95 @@
+section {
+  height: 100%;
+  width: auto;
+  position: relative;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: lightgray;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+img {
+  width: 60%;
+  margin-left: 10%;
+}
+
+h1 { 
+  margin-left: 20px;
+}
+
+.mat-typography {
+  margin-bottom: 0% !important;
+}
+
+.titulo {
+  font-size: x-large;
+  font-size: large;
+}
+
+.sem-igridientes {
+  text-align: center;
+}
+
+p {
+  color: gray;
+  margin: 15px 0;
+}
+
+.mat-dialog-content {
+  width: 100%;
+}
+
+.mat-dialog-actions {
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.mat-button {
+  border: 1px solid black;
+  background-color: gold;
+  transform: scale(1.2);
+  margin-bottom: 20px;
+}
+
+.mat-divider {
+  margin: 5px 0;
+  background-color: lightgray;
+}
+
+.menor {
+  margin: 5px 50px;
+}
+
+ul {
+  width: 30%;
+  margin: 0 auto;
+}
+
+li {
+  text-align: start;
+}
+
+.contador {
+  max-width: 40%;
+  margin-bottom: 10px;
+}
+
+.mat-form-field-underline {
+  background-color: black;
+}
+
+.mat-form-field-prefix, .mat-form-field-suffix {
+  transform: scale(2);
+  margin-bottom: 10px;
+}
+
+.mat-form-field-infix {
+  font-size: x-large;
+}

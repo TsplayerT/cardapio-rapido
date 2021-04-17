@@ -1,44 +1,69 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule  } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
 
-import { AppComponent } from './app.component';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { RecomendacaoComponent } from './components/recomendacao/recomendacao.component';
-import { ContatoComponent } from './components/contato/contato.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { ApeloComponent } from './components/apelo/apelo.component';
-import { OpcaoComponent } from './modals/opcao/opcao.component';
-import { PedidoComponent } from './modals/pedido/pedido.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { NavegadorComponent } from './navegador/navegador.component';
+import { InicioComponent } from './pedacos/inicio/inicio.component';
+import { RecomendacaoComponent } from './pedacos/recomendacao/recomendacao.component';
+import { ApeloComponent } from './pedacos/apelo/apelo.component';
+import { MenuComponent } from './pedacos/menu/menu.component';
+import { ContatoComponent } from './pedacos/contato/contato.component';
+import { OpcaoComponent } from './formularios/opcao/opcao.component';
+import { ContadorComponent } from './componente/contador/contador.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    PrincipalComponent,
+    NavegadorComponent,
     InicioComponent,
     RecomendacaoComponent,
-    ContatoComponent,
-    MenuComponent,
     ApeloComponent,
+    MenuComponent,
+    ContatoComponent,
     OpcaoComponent,
-    PedidoComponent,
-    NavbarComponent
+    ContadorComponent
   ],
   imports: [
+    FormsModule,
+    RouterModule,
     BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+
+    CarouselModule,
+    FontAwesomeModule,
+
+    MatToolbarModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatIconModule,
     MatGridListModule,
-    HttpClientModule
+    MatDialogModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [PrincipalComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class AppModule { }

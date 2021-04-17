@@ -1,0 +1,69 @@
+#menu {
+  height: 100%;
+}
+
+mat-tab-group {
+  margin-top: 100px;
+}
+
+.mat-tab-label {
+  color: black;
+  font-size: large;
+  font-weight: 800 !important;
+}
+
+.mat-icon {
+  margin-right: 10px;
+}
+
+.mat-grid-list {
+  margin-top: 20px;
+  margin-left: 10%;
+  max-width: 80%;
+}
+
+.opcaoNula {
+  color: black;
+  font-size: medium;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.opcaoPossivel {
+  background-color: rgb(240, 240, 240);
+  border: 2px solid rgb(240, 240, 240);
+  border-radius: 10px;
+}
+
+.opcaoPossivel:hover {
+  cursor: pointer;
+  border: 2px solid lightgray;
+}
+
+.opcaoPossivel:active {
+  transform: scale(1);
+}
+
+.coluna {
+  flex: 1;
+}
+
+.linha {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.menuPreco {
+  color: rgb(225, 25, 25);
+  margin-top: 8px;
+}
+
+.menuDescricao {
+  margin: 30px !important;
+  color: gray;
+}

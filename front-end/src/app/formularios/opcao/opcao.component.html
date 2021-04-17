@@ -1,0 +1,19 @@
+<section>
+  <img [src]="pegarImagemUrl()">
+  <h1 class="titulo" mat-dialog-title>{{ opcao.nome }}</h1>
+  <div mat-dialog-content>
+    <mat-divider></mat-divider>
+    <h1 class="titulo">{{ descricaoTitulo }}</h1>
+    <p>{{ opcao.descricao }}</p>
+    <mat-divider class="menor"></mat-divider>
+    <h1 class="titulo">{{ igridientesTitulo }}</h1>
+    <p class="sem-igridientes" *ngIf="!existeIgridientesCadastrados">{{ semIgridientesTexto }}</p>
+    <ul *ngIf="existeIgridientesCadastrados">
+      <li *ngFor="let igridiente of opcao.igridientes">{{ igridiente }}</li>
+    </ul>
+  </div>
+  <div mat-dialog-actions>
+    <app-contador class="contador" [value]="quantidade" [step]="1" [min]="0" [max]="999"></app-contador>
+    <button mat-button (click)="finalizar()">{{ botaoFinalizarTexto }}</button>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+section {
+  overflow: hidden;
+  height: 600px;
+  background-color: #c2121f;
+}
+
+.pratoFinal {
+  width: 600px;
+  float: right;
+}
+
+.contatoFundo {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.contatoFundo p {
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 80px;
+}
+
+.cartoes {
+  justify-content: space-around;
+  display: flex;
+}
+
+.info {
+  background-color: white;
+  border-radius: 10px;
+  width: 230px;
+  height: 180px;
+  padding: 15px;
+  display: grid;
+}
+
+.info h1 {
+  font-weight: bold !important;
+}
+
+.info .linha {
+  margin-left: 20px;
+  justify-content: left;
+}
+
+.info a {
+  text-align: start;
+  color: rgb(100, 100, 100);
+}
+
+.info .linha .mat-icon {
+  color: rgb(200, 200, 50);
+}
+
+button {
+  width: 150px;
+  color: black;
+  justify-self: center;
+  background-color: gold;
+  text-transform: uppercase;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(200, 200, 50);
+}

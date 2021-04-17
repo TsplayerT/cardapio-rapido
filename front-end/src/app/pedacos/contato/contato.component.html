@@ -1,0 +1,36 @@
+<section id="contato">
+  <img class="pratoFinal" [src]="imagemPratoFinal">
+  <div class="contatoFundo">
+    <p>{{ titulo }}</p>
+    <div class="cartoes">
+      <div class="info">
+        <h1>{{ localTitulo }}</h1>
+        <div class="linha">
+          <mat-icon>{{ enderecoImagemTag }}</mat-icon>
+          <a>{{ enderecoTexto }}</a>
+        </div>
+        <div class="linha">
+          <mat-icon>{{ telefoneImagemTag }}</mat-icon>
+          <a>{{ telefoneTexto }}</a>
+        </div>
+        <div class="linha">
+          <mat-icon>{{ emailImagemTag }}</mat-icon>
+          <a>{{ emailTexto }}</a>
+        </div>
+      </div>
+      <div class="info">
+        <div *ngFor="let invervalo of invervalos">
+          <h1>{{ invervalo.titulo }}</h1>
+          <div *ngFor="let horario of invervalo.horarios">
+            <a>{{ horario.inicio }}</a> - <a>{{ horario.final }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <h1>{{ whatsappTitulo }}</h1>
+        <a>{{ whatsappDescricao }}</a>
+        <button mat-stroked-button>{{ whatsappBotaoTexto }}</button>
+      </div>
+    </div>
+  </div>
+</section>

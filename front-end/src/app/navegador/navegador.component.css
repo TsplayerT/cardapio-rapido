@@ -1,0 +1,54 @@
+.fixador {
+  z-index: 999;
+  top: 0;
+  position: fixed;
+  background-color: black;
+}
+
+.logo {
+  margin-left: 100px;
+  height: 30px;
+  width: 180px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+button {
+  width: 150px;
+  margin-left: auto; 
+  margin-right: 150px;
+  transform: scale(1.1);
+  color: gold;
+  text-transform: uppercase;
+  border: 2px solid gold !important;
+}
+
+button:hover {
+  color: black;
+  background-color: gold;
+}
+
+.espacador {
+  flex: 1;
+  margin-left: auto; 
+  max-width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+span {
+  font-size: medium;
+  color: rgb(150, 150, 150);
+}
+
+span:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  color: rgb(250, 250, 250);
+}
+
+span:active {
+  transform: scale(1);
+}
