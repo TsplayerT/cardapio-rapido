@@ -2,7 +2,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, isDevMode, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -28,6 +28,7 @@ import { MenuComponent } from './pedacos/menu/menu.component';
 import { ContatoComponent } from './pedacos/contato/contato.component';
 import { OpcaoComponent } from './formularios/opcao/opcao.component';
 import { ContadorComponent } from './componente/contador/contador.component';
+import { PedidoComponent } from './formularios/pedido/pedido.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ContadorComponent } from './componente/contador/contador.component';
     MenuComponent,
     ContatoComponent,
     OpcaoComponent,
-    ContadorComponent
+    ContadorComponent,
+    PedidoComponent
   ],
   imports: [
     FormsModule,

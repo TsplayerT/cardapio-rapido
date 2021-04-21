@@ -1,8 +1,8 @@
 import { PedidosService } from './../../servicos/pedidos.service';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Opcao } from 'src/tipos';
+import { Opcao } from 'src/app/tipos';
 
 @Component({
   selector: 'app-opcao',
@@ -11,22 +11,23 @@ import { Opcao } from 'src/tipos';
 })
 export class OpcaoComponent {
 
+  @Output()
   quantidade = 0;
-  botaoFinalizarTexto = 'Finalizar Pedido';
-  descricaoTitulo = 'Descrição';
-  igridientesTitulo = 'Igridientes';
-  semIgridientesTexto = 'Nenhum igridiente cadastrado';
-  existeIgridientesCadastrados = false;
+  botaoFinalizarTexto = 'Adicionar Opção';
+  textoDescricao = 'Descrição';
+  textoIngridientes = 'Ingridientes';
+  textoSemIngridientes = 'Nenhum ingridiente cadastrado';
+  existeIngridientesCadastrados = false;
 
   constructor(private pedidosService: PedidosService, public dialogRef: MatDialogRef<OpcaoComponent>, @Inject(MAT_DIALOG_DATA) public opcao: Opcao) {
-    this.existeIgridientesCadastrados = opcao.igridientes != null && opcao.igridientes != undefined && opcao.igridientes.length > 0;
+    this.existeIngridientesCadastrados = opcao.ingridientes != null && opcao.ingridientes != undefined && opcao.ingridientes.length > 0;
+    this.quantidade = pedidosService.pegarQuantidadeOpcao(this.opcao);
   }
 
-  finalizar(): void {
-    if(this.quantidade > 0) {
-      this.pedidosService.opcoesPedidas.push(this.opcao);
-    }
+  finalizar() {
+    this.opcao.quantidade = this.quantidade;
 
+    this.pedidosService.atualizarPedido(this.opcao);
     this.dialogRef.close(this.pedidosService.opcoesPedidas);
   }
 

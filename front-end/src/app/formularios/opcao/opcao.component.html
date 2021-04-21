@@ -1,19 +1,19 @@
 <section>
   <img [src]="pegarImagemUrl()">
   <h1 class="titulo" mat-dialog-title>{{ opcao.nome }}</h1>
+  <mat-divider></mat-divider>
   <div mat-dialog-content>
-    <mat-divider></mat-divider>
-    <h1 class="titulo">{{ descricaoTitulo }}</h1>
+    <h1 class="titulo">{{ textoDescricao }}</h1>
     <p>{{ opcao.descricao }}</p>
     <mat-divider class="menor"></mat-divider>
-    <h1 class="titulo">{{ igridientesTitulo }}</h1>
-    <p class="sem-igridientes" *ngIf="!existeIgridientesCadastrados">{{ semIgridientesTexto }}</p>
-    <ul *ngIf="existeIgridientesCadastrados">
-      <li *ngFor="let igridiente of opcao.igridientes">{{ igridiente }}</li>
+    <h1 class="titulo">{{ textoIngridientes }}</h1>
+    <p class="sem-ingridientes" *ngIf="!existeIngridientesCadastrados">{{ textoSemIngridientes }}</p>
+    <ul *ngIf="existeIngridientesCadastrados">
+      <li *ngFor="let ingridiente of opcao.ingridientes">{{ ingridiente }}</li>
     </ul>
   </div>
   <div mat-dialog-actions>
-    <app-contador class="contador" [value]="quantidade" [step]="1" [min]="0" [max]="999"></app-contador>
+    <app-contador class="contador" [(valor)]="quantidade" (valorAlterado)="quantidade = $event"></app-contador>
     <button mat-button (click)="finalizar()">{{ botaoFinalizarTexto }}</button>
   </div>
 </section>

@@ -4,6 +4,6 @@
     <div class="espacador">
       <span *ngFor="let botao of botoes">{{ botao.texto }}</span>
     </div>
-    <button mat-stroked-button [matBadge]="quantidadePedidos" matBadgePosition="before" matBadgeColor="accent">{{ botaoPedidoTexto }}</button>
+    <button mat-stroked-button [matBadge]="quantidadePedidos" matBadgePosition="before" matBadgeColor="accent" (click)="abrirPedido()">{{ botaoPedidoTexto }}</button>
   </mat-toolbar-row>
 </mat-toolbar>

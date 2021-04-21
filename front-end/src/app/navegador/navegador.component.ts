@@ -1,6 +1,7 @@
+import { PedidoComponent } from './../formularios/pedido/pedido.component';
+import { MatDialog } from '@angular/material/dialog';
+import { PedidosService } from './../servicos/pedidos.service';
 import { Component } from '@angular/core';
-
-export var QuantidadePedidos: number;
 
 @Component({
   selector: 'app-navegador',
@@ -18,4 +19,15 @@ export class NavegadorComponent {
     { id: 3, texto: 'Menu', url: '/' },
     { id: 4, texto: 'Contato', url: '/' }
   ];
+
+  constructor(public pedidosService: PedidosService, public pedido: MatDialog) {
+    this.pedidosService.quantidadePedidos.subscribe(quantidade => this.quantidadePedidos = quantidade);
+  }
+
+  abrirPedido(): void {
+    const dialogRef = this.pedido.open(PedidoComponent, 
+    {
+      width: '150px'
+    });
+  }
 }

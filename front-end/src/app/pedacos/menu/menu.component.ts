@@ -1,7 +1,8 @@
 import { OpcaoComponent } from './../../formularios/opcao/opcao.component';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Opcao } from 'src/tipos';
+import { Opcao } from 'src/app/tipos';
+import { Utilidade } from 'src/app/utilidade';
 
 interface Aba {
   id: number;
@@ -31,7 +32,7 @@ export class MenuComponent {
     //cafe da manha
     [
       { id: 0, nome: 'teste 1', descricao: 'bla bla', preco: 2.5 },
-      { id: 1, nome: 'teste 2', descricao: 'foo foo', preco: 6, igridientes: [ 'água', 'sal', 'açucar', 'lasanha', 'pão' ] },
+      { id: 1, nome: 'teste 2', descricao: 'foo foo', preco: 6, ingridientes: [ 'água', 'sal', 'açucar', 'lasanha', 'pão' ] },
       { id: 2, nome: 'teste 3', descricao: 'bar', preco: 1.40 },
       { id: 3, nome: 'teste 4', descricao: 'asiudaiusd as', preco: 88.5 }
     ],
@@ -78,11 +79,12 @@ export class MenuComponent {
       data: opcao
     });
 
-    dialogRef.afterClosed().subscribe(resultado => 
-    {
-      console.log('formulário fechado');
-      console.log('resultado', resultado);
-    });
-  }
+    dialogRef.afterClosed().subscribe(resultado => {
 
+      for (let index = 0; index < resultado?.length; index++) {
+        const opcao = resultado[index];
+
+        Utilidade.RegistrarOpcao('finalizando', opcao, index);
+    }});
+  }
 }

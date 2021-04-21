@@ -1,0 +1,20 @@
+<section>
+  <div class="fundoTitulo">
+    <h1 class="titulo" mat-dialog-title>{{ textoTitulo }}</h1>
+    <h1 class="descricao">{{ textoDescricao }}</h1>
+    <mat-divider class="menor"></mat-divider>
+  </div>
+  <div mat-dialog-content>
+    <p class="sem-opcoes" *ngIf="!existeOpcoes">{{ textoSemOpcoes }}</p>
+    <ul *ngIf="existeOpcoes">
+      <li *ngFor="let opcao of pedidosService.opcoesPedidas">
+        <a class="textoOpcao">{{ montarTextoOpcao(opcao) }}</a>
+        <a class="precoOpcao">{{ montarPrecoOpcao(opcao) }}</a>
+      </li>
+    </ul>
+  </div>
+  <div mat-dialog-actions>
+    <a class="precoFinal">{{ montarPrecoFinal() }}</a>
+    <button mat-button (click)="finalizar()">{{ botaoFinalizarTexto }}</button>
+  </div>
+</section>

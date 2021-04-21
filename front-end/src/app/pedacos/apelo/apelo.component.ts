@@ -9,7 +9,7 @@ export class ApeloComponent {
 
   batatasFritasUrl = 'assets/batatas-fritas.png';
   titulo = 'O que foi?';
-  descricao = 'Peça agora mesmo !';
+  descricao = 'Peça agora mesmo!';
   botaoApeloTexto = 'Fazer Pedido';
 
 }
