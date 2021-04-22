@@ -2,8 +2,11 @@
   height: 100%;
 }
 
-mat-tab-group {
-  margin-top: 100px;
+.titulo {
+  margin: 100px 0 20px 0 !important;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 700 !important;
 }
 
 .mat-tab-label {

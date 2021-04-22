@@ -15,6 +15,9 @@ interface Opcao {
 })
 export class RecomendacaoComponent {
   
+  titulo = 'Recomendações';
+  subtitulo = 'Para acabar com a fome';
+  
   configuracoes: OwlOptions = {
     loop: true,
     autoplay: false,

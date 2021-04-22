@@ -5,17 +5,16 @@ section {
 
 img {
   position: relative;
-  top: -149.6%;
-  left: 5%;
-  transform: scale(0.4);
-  overflow: hidden;
+  top: -50%;
+  left: 20%;
+  max-height: 150%;
 }
 
 div {
   position: relative;
-  top: -335%;
+  top: -130%;
   left: 50%;
-  max-width: 50%;
+  max-width: 20%;
 }
 
 p {

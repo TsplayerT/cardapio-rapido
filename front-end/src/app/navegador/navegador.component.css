@@ -11,10 +11,6 @@
   width: 180px;
 }
 
-.logo:hover {
-  cursor: pointer;
-}
-
 button {
   width: 150px;
   margin-left: auto; 

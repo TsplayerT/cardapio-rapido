@@ -1,7 +1,7 @@
 <section id="recomendacao">
-  <p>Recomendações</p>
-  <h2>Para acabar com a fome</h2>
-  <owl-carousel-o [options]="configuracoes">
+  <p class="animar-0-baixo-cima-1">{{ titulo }}</p>
+  <h2 class="animar-0-baixo-cima-1">{{ subtitulo }}</h2>
+  <owl-carousel-o [options]="configuracoes" class="animar-0-visibilidade-2">
     <ng-container *ngFor="let opcao of opcoes">
       <ng-template class="cartao" carouselSlide [id]="opcao.id">
         <img class="frente" [src]="opcao.url">

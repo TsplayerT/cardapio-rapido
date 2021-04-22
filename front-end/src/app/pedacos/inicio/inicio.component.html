@@ -1,13 +1,15 @@
 <section id="inicio">
-  <div class="inicioFundo">
-    <img class="imagemFundo" [src]="imagemFundo">
-    <img class="pratoChefe" [src]="pratoChefe">
-  </div>
-  <div class="texto">
-    <h1>
-      <span *ngFor="let pedacoTitulo of pedacosTitulo" [ngStyle]="estiloTitulo(pedacoTitulo)"><br *ngIf="pedacoTitulo.quebrarLinha">{{ pedacoTitulo.texto }}</span>
-    </h1>
-    <p>{{ descricao }}</p>
-    <button mat-stroked-button>{{ botaoMenuTexto }}</button>
+  <div class="organizador">
+    <div>
+      <img class="animar-0-visibilidade-1" [src]="imagemFundo">
+      <img class="pratoChefe animar-0-esquerda-direita-escalando-1" [src]="pratoChefe">
+    </div>
+    <div class="texto animar-0-baixo-cima-1">
+      <h1>
+        <span *ngFor="let pedacoTitulo of pedacosTitulo" [ngStyle]="estiloTitulo(pedacoTitulo)"><br *ngIf="pedacoTitulo.quebrarLinha">{{ pedacoTitulo.texto }}</span>
+      </h1>
+      <p>{{ descricao }}</p>
+      <button mat-stroked-button (click)="rolarAte('menu')" >{{ botaoMenuTexto }}</button>
+    </div>
   </div>
 </section>

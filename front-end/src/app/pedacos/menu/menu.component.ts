@@ -27,6 +27,7 @@ export class MenuComponent {
     { id: 4, titulo: 'Bebidas', imagemTag: 'wine_bar' }
   ];
 
+  titulo = "Opções do Menu";
   textoNenhumaOpcao = 'Nenhuma opção encontrada';
   opcoes: Opcao[][] = [
     //cafe da manha

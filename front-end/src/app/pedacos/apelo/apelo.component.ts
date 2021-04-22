@@ -1,3 +1,4 @@
+import { Utilidade } from './../../utilidade';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,4 +13,5 @@ export class ApeloComponent {
   descricao = 'Peça agora mesmo!';
   botaoApeloTexto = 'Fazer Pedido';
 
+  rolarAte = (referencia: string): void => Utilidade.RolarAte(referencia);
 }

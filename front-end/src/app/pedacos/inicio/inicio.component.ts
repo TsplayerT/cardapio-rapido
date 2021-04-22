@@ -1,3 +1,4 @@
+import { Utilidade } from './../../utilidade';
 import { Component } from '@angular/core';
 
 interface Titulo {
@@ -32,4 +33,6 @@ export class InicioComponent {
       'font-size': 'xxx-large'
     }
   };
+  
+  rolarAte = (referencia: string): void => Utilidade.RolarAte(referencia);
 }

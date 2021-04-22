@@ -1,3 +1,4 @@
+import { Utilidade } from './../utilidade';
 import { PedidoComponent } from './../formularios/pedido/pedido.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PedidosService } from './../servicos/pedidos.service';
@@ -14,18 +15,20 @@ export class NavegadorComponent {
   logoUrl = 'assets/logo.png';
   botaoPedidoTexto = 'Ver Pedido';
   botoes = [
-    { id: 1, texto: 'Início', url: '/' },
-    { id: 2, texto: 'Recomendações', url: '/' },
-    { id: 3, texto: 'Menu', url: '/' },
-    { id: 4, texto: 'Contato', url: '/' }
+    { id: 1, texto: 'Início', referencia: 'inicio' },
+    { id: 2, texto: 'Recomendações', referencia: 'recomendacao' },
+    { id: 3, texto: 'Menu', referencia: 'menu' },
+    { id: 4, texto: 'Contato', referencia: 'contato' }
   ];
 
   constructor(public pedidosService: PedidosService, public pedido: MatDialog) {
     this.pedidosService.quantidadePedidos.subscribe(quantidade => this.quantidadePedidos = quantidade);
   }
 
+  rolarAte = (referencia: string): void => Utilidade.RolarAte(referencia);
+
   abrirPedido(): void {
-    const dialogRef = this.pedido.open(PedidoComponent, 
+    /*const dialogRef = */this.pedido.open(PedidoComponent, 
     {
       width: '150px'
     });

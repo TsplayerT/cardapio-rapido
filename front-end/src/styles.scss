@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~src/animacoes.scss';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css');
@@ -12,6 +13,11 @@ html, body {
   background-blend-mode: lighten;
   background-color: rgba(255, 255, 255, 0.95);
   background-image: url('assets/wallpaper.png');
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

@@ -1,20 +1,21 @@
-.inicioFundo, .imagemFundo {
+.organizador {
+  display: inline;
   height: 100%;
-  float: left;
+  width: 100%;
 }
 
 .pratoChefe {
-  position: relative;
+  position: absolute;
   top: 25%;
-  left: -40%;
+  left: 10%;
   height: 50%;
   width: auto;
 }
 
 .texto {
-  position: relative;
+  position: absolute;
   left: 50%;
-  top: -60%;
+  top: 40%;
   width: 40%;
   height: 30%;
 }
