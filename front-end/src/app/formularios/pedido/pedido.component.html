@@ -7,14 +7,14 @@
   <div mat-dialog-content>
     <p class="sem-opcoes" *ngIf="!existeOpcoes">{{ textoSemOpcoes }}</p>
     <ul *ngIf="existeOpcoes">
-      <li *ngFor="let opcao of pedidosService.opcoesPedidas">
-        <a class="textoOpcao">{{ montarTextoOpcao(opcao) }}</a>
-        <a class="precoOpcao">{{ montarPrecoOpcao(opcao) }}</a>
+      <li *ngFor="let opcao of pegarOpcoes()">
+        <a class="textoOpcao">{{ textoOpcao(opcao) }}</a>
+        <a class="precoOpcao">{{ precoOpcao(opcao) }}</a>
       </li>
     </ul>
   </div>
   <div mat-dialog-actions>
-    <a class="precoFinal">{{ montarPrecoFinal() }}</a>
+    <a class="precoFinal">{{ precoPedido() }}</a>
     <button mat-button (click)="finalizar()">{{ botaoFinalizarTexto }}</button>
   </div>
 </section>

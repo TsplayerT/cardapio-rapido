@@ -1,12 +1,15 @@
-#menu {
+.secao {
   height: 100%;
 }
 
 .titulo {
-  margin: 100px 0 20px 0 !important;
   text-align: center;
   font-size: x-large;
   font-weight: 700 !important;
+}
+
+.espacadorTitulo {
+  margin-top: 70px !important;
 }
 
 .mat-tab-label {

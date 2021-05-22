@@ -1,3 +1,4 @@
+import { PedidosService } from './servicos/pedidos.service';
 import { isDevMode } from '@angular/core';
 import { Opcao } from '../app/tipos';
 
@@ -7,7 +8,7 @@ export class Utilidade {
   private static tarefaIncremento: number = 100;
   private static tarefaVelocidade: number = 20;
   private static gerenciadorFuncaoPermitidoExecutar: boolean = false;
-  private static porcentagemMargemAdapativa: number = -2.5;
+  private static porcentagemMargemAdapativa: number = -7.5;
 
   static Registrar = (titulo: string, mensagem: string): void => isDevMode && console.log(`[${titulo}] -> ${mensagem}`);
   static RegistrarOpcao = (titulo: string, opcao: Opcao, index: number = null): void => isDevMode && console.log(`[${titulo}] -> ${index != null ? `index: ${index}` : ''} - id: ${opcao.id} - nome: ${opcao.nome} - quantidade: ${opcao.quantidade}`);
@@ -64,13 +65,15 @@ export class Utilidade {
   static PossivelAnimar(elemento: Element, classPermitida: string = null): boolean {
     let areaElemento = elemento.getBoundingClientRect();
     let telaTamanho = window.innerHeight;
-    let alturaRolagem = window.pageYOffset;
-    let telaMargemAdaptativa = telaTamanho * this.porcentagemMargemAdapativa / 100;
-    let alturaElementoReferenteTopoTela = Math.abs(areaElemento.top);
-    var alturaElementoCalculada = alturaElementoReferenteTopoTela - telaTamanho;
-    
+    let alturaRolagem = telaTamanho + window.pageYOffset;
+    let margemAdaptativaTela = telaTamanho * this.porcentagemMargemAdapativa / 100;
+    let margemAdaptativaRolagem = alturaRolagem * this.porcentagemMargemAdapativa / 100;
+    let alturaElementoReferenteTopoTela = areaElemento.top + window.pageYOffset;
+    let telaTamanhoMargem = telaTamanho + margemAdaptativaTela;
+    let alturaRolagemMargem = alturaRolagem + margemAdaptativaRolagem;
+
     let condicao1 = classPermitida == null || Array.from(elemento.classList).find(x => x.startsWith(classPermitida)) != null;
-    let condicao2 = alturaElementoCalculada <= 0 || alturaElementoCalculada - telaMargemAdaptativa <= alturaRolagem;
+    let condicao2 =  alturaElementoReferenteTopoTela <= telaTamanhoMargem || alturaRolagemMargem >= alturaElementoReferenteTopoTela;
 
     return condicao1 && condicao2;
   }
@@ -82,6 +85,23 @@ export class Utilidade {
     if (elementoPai == null || elementoPai == undefined) return 'null'; 
 
     return id != null && id != undefined && id != '' ? id : Utilidade.PegarIdPai(elemento.parentElement);
+  }
+
+  public static PegarLinkFinal(servico: PedidosService): string {
+    //https://api.whatsapp.com/send/?phone=5515991910109&text=Card%C3%A1pio%20R%C3%A1pido%0A%0AMeu%20nome%20%C3%A9%20Hfgg
+
+    let linkInicial = 'https://api.whatsapp.com/send/';
+    let novaLinha = '%0A';
+    let numeroCelular = '5515991910109';
+    let textoCabecalho = `*Cardápio Rápido - Pedido: S0001*`;
+    let textoOpcoes: string;
+    let textoRodape = `${servico.pegarTextoPrecoPedido()}`;
+
+    servico.pedido.forEach(x => textoOpcoes += `${servico.pegarTextoOpcao(x)}${novaLinha}${servico.pegarTextoPrecoOpcao(x)}`);
+
+    let linkFinal = `${linkInicial}?phone=${numeroCelular}&text=${textoCabecalho}${novaLinha}${novaLinha}${textoOpcoes}${novaLinha}${novaLinha}${textoRodape}`;
+
+    return linkFinal;
   }
 
 }

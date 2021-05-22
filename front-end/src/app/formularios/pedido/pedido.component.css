@@ -75,14 +75,19 @@ p {
 ul {
   width: 70%;
   margin: 0 auto;
+  list-style: outside none none;
 }
 
 li {
   text-align: start;
 }
 
+.textoOpcao {
+  float: left;
+}
+
 .precoOpcao {
-  margin-left: 40%;
+  float: right;
 }
 
 .precoFinal {

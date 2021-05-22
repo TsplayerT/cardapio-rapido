@@ -2,6 +2,7 @@ import { Opcao } from './../../tipos';
 import { MatDialogRef } from '@angular/material/dialog';
 import { PedidosService } from './../../servicos/pedidos.service';
 import { Component } from '@angular/core';
+import { Utilidade } from 'src/app/utilidade';
 
 @Component({
   selector: 'app-pedido',
@@ -17,20 +18,18 @@ export class PedidoComponent {
   existeOpcoes = false;
 
   constructor(private pedidosService: PedidosService, public dialogRef: MatDialogRef<PedidoComponent>) {
-    this.existeOpcoes = pedidosService.opcoesPedidas.length > 0;
+    this.existeOpcoes = pedidosService.pedido.length > 0;
   }
 
-  montarTextoOpcao = (opcao: Opcao): string => `${opcao.quantidade} - ${opcao.nome}`;
-  montarPrecoOpcao = (opcao: Opcao): string => opcao.preco > 0 ? `R$ ${(opcao.quantidade * opcao.preco).toFixed(2)}` : 'GRÁTIS';
-  montarPrecoFinal = (): string => {
-    let preco = 0;
-
-    this.pedidosService.opcoesPedidas.forEach(x => preco += x.quantidade * x.preco);
-
-    return `Total: R$ ${preco.toFixed(2)}`;
-  }
+  pegarOpcoes = (): Opcao[] => this.pedidosService.pedido;
+  textoOpcao = (opcao: Opcao): string => this.pedidosService.pegarTextoOpcao(opcao);
+  precoOpcao = (opcao: Opcao): string => this.pedidosService.pegarTextoPrecoOpcao(opcao);
+  precoPedido = (): string => this.pedidosService.pegarTextoPrecoPedido();
 
   finalizar() {
-    this.dialogRef.close(this.pedidosService.opcoesPedidas);
+    // let link = Utilidade.PegarLinkFinal(this.pedidosService);
+
+    this.dialogRef.close(this.pedidosService.pedido);
+    // window.open(link);
   }
 }

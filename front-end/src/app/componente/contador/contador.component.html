@@ -9,7 +9,14 @@
     [disabled]="permitidoDecremento(valor)">
     <mat-icon>remove</mat-icon>
   </button>
-  <input matInput type="number" [(ngModel)]="valor" ngDefaultControl (focus)="mudarCor('primary')" (blur)="mudarCor('default')" />
+  <input 
+    matInput
+    type="number"
+    [(ngModel)]="valor"
+    ngDefaultControl
+    (focus)="mudarCor('primary')"
+    (blur)="mudarCor('default')"
+    (ngModelChange)="textoMudando($event)" />
   <button 
     mat-button 
     mat-icon-button 
@@ -18,6 +25,7 @@
     [color]="pegarCor()" 
     (click)="alterarValor(incremento)" 
     [disabled]="permitidoIncremento(valor)">
+
     <mat-icon>add</mat-icon>
   </button>
 </mat-form-field>

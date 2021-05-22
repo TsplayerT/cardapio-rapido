@@ -8,35 +8,35 @@ import { Opcao } from 'src/app/tipos';
 export class PedidosService {
 
   public quantidadePedidos = new EventEmitter<number>();
-  public opcoesPedidas: Opcao[] = []; 
+  public pedido: Opcao[] = []; 
 
   atualizarPedido(opcao: Opcao): void {
-    let index = this.opcoesPedidas.findIndex(x => x.id == opcao?.id);
+    let index = this.pedido.findIndex(x => x.id == opcao?.id);
 
     if(index >= 0) {
       if(opcao.quantidade > 0) {
-        this.opcoesPedidas[index] = opcao;
+        this.pedido[index] = opcao;
 
         Utilidade.RegistrarOpcao('atualizando', opcao, index);
       }
       else {
-        this.opcoesPedidas.splice(index);
-        this.quantidadePedidos.emit(this.opcoesPedidas.length);
+        this.pedido.splice(index);
+        this.quantidadePedidos.emit(this.pedido.length);
 
         Utilidade.RegistrarOpcao('removendo', opcao, index);
       }
     }
     else if (opcao != null && opcao != undefined) {
-      this.opcoesPedidas.push(opcao);
-      this.quantidadePedidos.emit(this.opcoesPedidas.length);
+      this.pedido.push(opcao);
+      this.quantidadePedidos.emit(this.pedido.length);
 
       Utilidade.RegistrarOpcao('adicionado', opcao, index);
     }
   }
 
   pegarQuantidadeOpcao(opcao: Opcao): number {
-    let index = this.opcoesPedidas.findIndex(x => x.id == opcao.id);
-    let valor =  index >= 0 ? this.opcoesPedidas[index].quantidade : 0;
+    let index = this.pedido.findIndex(x => x.id == opcao.id);
+    let valor =  index >= 0 ? this.pedido[index].quantidade : 0;
 
     Utilidade.RegistrarOpcao('consultando', opcao, index);
 
@@ -44,22 +44,39 @@ export class PedidosService {
   }
 
   pegarQuantidadePedidos(): number {
-    return this.opcoesPedidas == null || this.opcoesPedidas == undefined ? 0 : this.opcoesPedidas.length;
+    return this.pedido == null || this.pedido == undefined ? 0 : this.pedido.length;
   }
 
   pegarQuantidadeOpcoesTotais(): number {
     var quantidade = 0;
   
-    if (this.opcoesPedidas != null && this.opcoesPedidas != undefined) {
-      for (var i = 0; i < this.opcoesPedidas.length; i++) {
-        if (this.opcoesPedidas[i] != null && this.opcoesPedidas[i] != undefined && this.opcoesPedidas[i].quantidade != null && this.opcoesPedidas[i].quantidade != undefined) {
-          quantidade += this.opcoesPedidas[i].quantidade;
+    if (this.pedido != null && this.pedido != undefined) {
+      for (var i = 0; i < this.pedido.length; i++) {
+        if (this.pedido[i] != null && this.pedido[i] != undefined && this.pedido[i].quantidade != null && this.pedido[i].quantidade != undefined) {
+          quantidade += this.pedido[i].quantidade;
         }    
       }
     }
   
     return quantidade;
   }
+
+  pegarTextoPrecoPedido(): string {
+    let precoFinal = 0;
+    let textoInicial = 'Total:';
+
+    this.pedido.forEach(x => precoFinal += x.quantidade * x.preco);
+
+    return precoFinal > 0 ? `${textoInicial} R$ ${precoFinal.toFixed(2)}` : `${textoInicial} GRÁTIS`;
+  }
+
+  pegarTextoPrecoOpcao(opcao: Opcao): string {
+    return opcao.preco > 0 ? `R$ ${((opcao.quantidade ?? 1) * opcao.preco).toFixed(2)}` : 'GRÁTIS';
+  }
+
+  pegarTextoOpcao (opcao: Opcao): string {
+    return `${opcao.quantidade} - ${opcao.nome}`;
+  };
   
   constructor() { }
 }

@@ -1,5 +1,5 @@
 .animar-0-visibilidade-1, .animar-0-visibilidade-2, .animar-1-visibilidade-1,
-.animar-0-esquerda-direita-1, .animar-0-esquerda-direita-escalando-1, .animar-0-esquerda-direita-especial-1,
+.animar-0-esquerda-direita-1, .animar-0-esquerda-direita-escalando-1, .animar-0-esquerda-direita-escalando-rodando-1, .animar-0-esquerda-direita-especial-1,
 .animar-0-direita-esquerda-1, .animar-0-direita-esquerda-escalando-1, .animar-0-direita-esquerda-especial-1,
 .animar-0-baixo-cima-1
 {
@@ -69,6 +69,20 @@
   }
   100% {
     transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animando-0-esquerda-direita-escalando-rodando-1 {
+  animation: animando-0-esquerda-direita-escalando-rodando-1 1.5s ease-in-out both;
+}
+@keyframes animando-0-esquerda-direita-escalando-rodando-1 {
+  0% {
+    transform: translateX(-500px) scale(0.5) rotateY(180);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1) rotateY(0);
     opacity: 1;
   }
 }

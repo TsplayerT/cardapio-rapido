@@ -1,3 +1,4 @@
+import { Utilidade } from 'src/app/utilidade';
 import { PedidosService } from './../../servicos/pedidos.service';
 import { Component, Inject, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -12,23 +13,50 @@ import { Opcao } from 'src/app/tipos';
 export class OpcaoComponent {
 
   @Output()
-  quantidade = 0;
-  botaoFinalizarTexto = 'Adicionar Opção';
-  textoDescricao = 'Descrição';
-  textoIngridientes = 'Ingridientes';
-  textoSemIngridientes = 'Nenhum ingridiente cadastrado';
-  existeIngridientesCadastrados = false;
+  quantidade: number = 0;
+  quantidadeSalva: number = 0;
+  textoDescricao: string = 'Descrição';
+  textoPreco: string;
+  textoIngridientes: string = 'Ingridientes';
+  textoSemIngridientes: string = 'Nenhum ingridiente cadastrado';
+  existeIngridientesCadastrados: boolean = false;
+  
+  botaoFinalizarTexto: string;
+  textoAdicionar: string = 'Adicionar';
+  textoAtualizar: string = 'Atualizar';
+  textoRemover: string = 'Remover';
 
   constructor(private pedidosService: PedidosService, public dialogRef: MatDialogRef<OpcaoComponent>, @Inject(MAT_DIALOG_DATA) public opcao: Opcao) {
     this.existeIngridientesCadastrados = opcao.ingridientes != null && opcao.ingridientes != undefined && opcao.ingridientes.length > 0;
-    this.quantidade = pedidosService.pegarQuantidadeOpcao(this.opcao);
+    this.quantidade = this.quantidadeSalva = pedidosService.pegarQuantidadeOpcao(this.opcao);
+    this.textoPreco = pedidosService.pegarTextoPrecoOpcao(opcao);
+
+    this.valorAlterado(this.quantidadeSalva);
+  }
+
+  valorAlterado(valor: number): void {
+    this.quantidade = valor;
+    
+    if(this.quantidadeSalva == 0) {
+      this.botaoFinalizarTexto = this.textoAdicionar;
+    }
+    else if(valor != 0 && this.quantidadeSalva != 0) {
+      this.botaoFinalizarTexto = this.textoAtualizar;
+    }
+    else if(valor == 0 && this.quantidadeSalva != 0) {
+      this.botaoFinalizarTexto = this.textoRemover;
+    }
   }
 
   finalizar() {
-    this.opcao.quantidade = this.quantidade;
-
-    this.pedidosService.atualizarPedido(this.opcao);
-    this.dialogRef.close(this.pedidosService.opcoesPedidas);
+    if (this.quantidade >= 0) {
+      this.opcao.quantidade = this.quantidade;
+      this.pedidosService.atualizarPedido(this.opcao);
+    }
+    else {
+      Utilidade.Registrar('formularioOpcao', 'quantidade inválida');
+    }
+    this.dialogRef.close(this.pedidosService.pedido);
   }
 
   pegarImagemUrl(): string {
